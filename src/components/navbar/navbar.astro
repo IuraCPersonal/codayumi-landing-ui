@@ -1,0 +1,101 @@
+---
+import Container from '@components/container.astro'
+import Dropdown from '@components/navbar/navdropdown.astro'
+import Link from '@components/ui/link.astro'
+import { Astronav, MenuItems, MenuIcon } from 'astro-navbar'
+
+const menuItems = [
+  {
+    title: 'Features',
+    path: '#',
+    children: [
+      {
+        title: 'Action',
+        path: '/'
+      },
+      {
+        title: 'Another action',
+        path: '#'
+      },
+      {
+        title: 'Dropdown submenu',
+        path: '#'
+      },
+      {
+        title: '404',
+        path: '/404'
+      }
+    ]
+  },
+  {
+    title: 'Pricing',
+    path: '/pricing'
+  },
+  {
+    title: 'About',
+    path: '/about'
+  },
+  {
+    title: 'Blog',
+    path: '/blog'
+  },
+  {
+    title: 'Contact',
+    path: '/contact'
+  }
+]
+---
+
+<Container>
+  <header
+    class="flex flex-col lg:flex-row justify-between items-center my-5 font-mplus"
+  >
+    <Astronav>
+      <div class="flex w-full lg:w-auto items-center justify-between">
+        <a href="/" class="text-2xl group">
+          <span class="font-bold text-slate-800">Codayumi</span>
+        </a>
+        <div class="block lg:hidden">
+          <MenuIcon class="w-4 h-4 text-gray-800" />
+        </div>
+      </div>
+      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
+        <ul class="flex flex-col lg:flex-row lg:gap-3">
+          {
+            menuItems.map((item, index: number) => (
+              <>
+                {item.children && (
+                  <Dropdown
+                    title={item.title}
+                    children={item.children}
+                    lastItem={index === menuItems.length - 1}
+                  />
+                )}
+
+                {!item.children && (
+                  <li>
+                    <a
+                      href={item.path}
+                      class="flex lg:px-3 py-2 text-gray-900 hover:text-piccolo-500 font-medium transition-colors"
+                    >
+                      {item.title}
+                    </a>
+                  </li>
+                )}
+              </>
+            ))
+          }
+        </ul>
+        <!-- <div class="lg:hidden flex items-center mt-3 gap-4"> -->
+        <!--   <Link href="#" style="muted" block size="md">Log in</Link> -->
+        <!--   <Link href="#" block size="md">Sign up</Link> -->
+        <!-- </div> -->
+      </MenuItems>
+    </Astronav>
+    <div>
+      <div class="hidden lg:flex items-center gap-4">
+        <Link href="#" size="md">Hire us</Link>
+      </div>
+    </div>
+  </header>
+</Container>

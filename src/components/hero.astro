@@ -1,0 +1,52 @@
+---
+import Link from './ui/link.astro'
+---
+
+<main>
+  <div class="flex flex-col gap-8">
+    <h1 class="text-3xl sm:text-4xl md:text-7xl font-extrabold text-gray-950">
+      We help clients bring their ideas to life.
+    </h1>
+    <p class="text-xl text-piccolo-900 leading-9">
+      Whether you’re starting from scratch, or levelling-up an existing product
+      suite, we bring a depth of experience in <span
+        class="underline underline-offset-4 transition-colors decoration-trunks decoration-[2px] hover:cursor-pointer hover:decoration-piccolo-500"
+        >software design and engineering</span
+      >
+      that few can match - from research and UX/UI Design, to Node.js, React, TypeScript,
+      and GraphQL.
+    </p>
+    <p class="text-xl text-piccolo-900 leading-9">
+      Lorem ipsum is placeholder text commonly used in the graphic, print, and
+      publishing industries for previewing layouts and visual mockups.
+    </p>
+    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <Link
+        href="#"
+        class="flex gap-1 items-center justify-center"
+        rel="noopener"
+      >
+        Get in touch
+      </Link>
+      <Link
+        href="#"
+        size="lg"
+        style="outline"
+        rel="noopener"
+        class="flex gap-1 items-center justify-center"
+      >
+        Browse our services
+        <svg
+          class="w-5 h-5 ml-2 -mr-1"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            fill-rule="evenodd"
+            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+            clip-rule="evenodd"></path></svg
+        >
+      </Link>
+    </div>
+  </div>
+</main>
